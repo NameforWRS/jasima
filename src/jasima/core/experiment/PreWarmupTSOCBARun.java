@@ -211,6 +211,7 @@ public class PreWarmupTSOCBARun extends BaseEvaluator {
 				MultipleReplicationExperiment mre = new MultipleReplicationExperiment();
 				mre.setInitialSeed(InitilizeSeed);
 				mre.setMaxReplications(iterationBudget);
+				mre.setPR(pr);
 				mre.setBaseExperiment(baseExperiment);
 				newRuns[i] = iterationBudget;
 				i++;
@@ -249,7 +250,7 @@ public class PreWarmupTSOCBARun extends BaseEvaluator {
 			{
 				for(int loop=0;loop<preWamrupStageBudget;loop++)
 				{
-					System.out.println(pr);
+					//System.out.println(pr);
 					long seedinvoking=this.InitilizeSeed+loop +1;
 					JavaCallCPlus shp1 = new JavaCallCPlus();  
 					double obj=shp1.getobj(pr, seedinvoking);
@@ -371,7 +372,7 @@ public class PreWarmupTSOCBARun extends BaseEvaluator {
 
 				mre.setInitialSeed(curSeed);
 				mre.setMaxReplications(curBudget);
-				//System.out.println("Warming Up curBudget is " + curBudget + " individual");
+				System.out.println("Warming Up curBudget is " + curBudget + " individual");
 				for(int loop=0;loop<curBudget;loop++)
 				{
 					long seedinvoking=this.InitilizeSeed+loop +1;
@@ -1010,31 +1011,6 @@ public class PreWarmupTSOCBARun extends BaseEvaluator {
 			an[i] -= stats[i].numObs();
 
 		List<Integer> maxRun = searchMaxWithIndex(an);
-
-		// // If we have multiple MaxAllocation, allocate them evenly
-		// if (maxRun.size() > 1) {
-		// int evenAllocation = (int) Math.round(add_budget / (maxRun.size() *
-		// 1.0));
-		//
-		// for (int i = 0; i < nd; i++) {
-		// an[i] = 0;
-		// }
-		//
-		// for (int i = 0; i < maxRun.size(); i++) {
-		// an[maxRun.get(i)] = Math.min(evenAllocation, add_budget);
-		//
-		// add_budget -= an[maxRun.get(i)];
-		//
-		// if (add_budget <= 0)
-		// break;
-		// }
-		// } else {
-		// for (int i = 0; i < nd; i++) {
-		// an[i] = 0;
-		// }
-		//
-		// an[maxRun.get(0)] = add_budget;
-		// }
 
 		int[] fn = new int[nd];
 

@@ -164,6 +164,7 @@ public class KnowledgeGradientRun extends BaseEvaluator {
 				mre.setInitialSeed(InitilizeSeed);
 				mre.setMaxReplications(iterationBudget);
 				mre.setBaseExperiment(baseExperiment);
+				mre.setPR(pr);
 				newRuns[i] = iterationBudget;
 				i++;
 				configurations.add(mre);

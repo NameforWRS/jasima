@@ -163,6 +163,7 @@ public class AOAPRun extends BaseEvaluator {
 				mre.setInitialSeed(InitilizeSeed);
 				mre.setMaxReplications(iterationBudget);
 				mre.setBaseExperiment(baseExperiment);
+				mre.setPR(pr);
 				newRuns[i] = iterationBudget;
 				i++;
 				//注意这里有configuration，查看这里的情况

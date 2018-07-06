@@ -266,29 +266,26 @@ public class RSSingleBestRun extends BaseEvaluator {
 			stats = Util.initializedArray(this.NumberOfDR, SummaryStat.class);			
 	
 		int i = 0;
-		
-/*		for (PR pr : this.DispatchingRules) {
-			DynamicShopExperiment baseExperiment = this.initBaseExperiment(pr);
-			MultipleReplicationExperiment mre = new MultipleReplicationExperiment();	
-			mre.setBaseExperiment(baseExperiment);
-			configurations.add(mre);
-		}*/
-		
-		
-		for (MultipleReplicationExperiment mre : this.configurations) {	
+
+		for (String pr : this.DispatchingRules) {	
+			
 			int c_budget = this.warmupStageBudget;
 			
-			if(!stats[i].isNew())
+/*			if(!stats[i].isNew())
 			{
 				if(stats[i].numObs() < this.warmupStageBudget)
 					c_budget = this.warmupStageBudget - stats[i].numObs();
 				else
 					continue;
-			}
+			}*/
 			
+			//DynamicShopExperiment baseExperiment = this.initBaseExperiment(pr);
+			MultipleReplicationExperiment mre = new MultipleReplicationExperiment();
 			mre.setInitialSeed(this.InitilizeSeed);
 			mre.setMaxReplications(c_budget);
-
+			//mre.setBaseExperiment(baseExperiment);
+			mre.setPR(pr);
+			configurations.add(mre);			
 			for(int loop=0;loop<c_budget;loop++)
 			{
 				long seedinvoking=this.InitilizeSeed+loop +1;
@@ -297,10 +294,13 @@ public class RSSingleBestRun extends BaseEvaluator {
 				SummaryStat test1=new SummaryStat();
 				this.stats[i].combine(test1.value(obj));
 			}
-			
 			this.totalBudget -= c_budget;
 
 			i++;
+		}
+		
+		for (MultipleReplicationExperiment mre : this.configurations) {	
+			
 		}
 	}
 

@@ -77,6 +77,7 @@ public class MultipleReplicationExperiment extends AbstractMultiExperiment {
 	private int maxReplications = 10;
 	
 	public Boolean isEffective;
+	private String DR;
 
 	private String[] confIntervalMeasures = {};
 	private double errorProb = 0.05d;
@@ -192,6 +193,13 @@ public class MultipleReplicationExperiment extends AbstractMultiExperiment {
 	public int getMaxReplications() {
 		return maxReplications;
 	}
+	public void setPR(String PR) {
+		this.DR = PR;
+	}
+	public String getPR() {
+		return DR;
+	}
+	
 
 	/**
 	 * Sets the maximum number of replications to perform. If the number of runs
