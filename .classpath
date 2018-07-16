@@ -22,7 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/nkwan/Desktop/GP/20180302 Later - Class B/jasima/src/jasima/aviator-2.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/nkwan/Desktop/Java/jasima/src/jasima/aviator-2.3.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/nkwan/Desktop/Java/Java_ClassA/jar/ECJExtend.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
